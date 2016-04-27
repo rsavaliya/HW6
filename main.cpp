@@ -64,7 +64,7 @@ int main()
             break;
     }
     
-    writeHash(Hashtable, "test.txt", max);
+    writeHash(Hashtable, "hashed_socials.txt", max);
 }
 
 int extraction (int s) // just adds on each int to the end of the string until the final is reached
@@ -107,9 +107,10 @@ void writeHash (int hashtable[], string filepath, int max)
 {
     ofstream out;
     out.open(filepath);
-    for (int i = 0; i < max; i++)
+    for (int i = 0; i < max-1; i++)
         out << hashtable[i] << ","; // writes out the hash table in a comma separ
         //out << i << "\t" << hashtable[i] << endl; //for testing purposes only
+    out << hashtable[max-1]; //writes last one without comma
         out.clear();
         out.close();
 }
